@@ -1,0 +1,4 @@
+rootProject.name = 'aureum-challenge'
+include 'src:test:support'
+findProject(':src:test:support')?.name = 'support'
+

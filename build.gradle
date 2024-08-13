@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.23.0'
+    testImplementation 'org.testng:testng:7.10.2'
+    testImplementation 'commons-io:commons-io:2.16.1'
+    testImplementation 'io.rest-assured:rest-assured:5.5.0'
+    testImplementation 'com.google.code.gson:gson:2.11.0'
+    testCompileOnly 'org.projectlombok:lombok:1.18.34'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
+}
+
+test {
+    //JUnit for API scenarios
+    useJUnit()
+    //TestNG For FE scenarios
+    useTestNG()
+}

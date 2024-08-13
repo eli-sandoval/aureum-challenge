@@ -1,0 +1,29 @@
+version: '3'
+services:
+  selenium-chrome:
+    image: selenium/standalone-chrome:latest
+    container_name: selenium-chrome
+    ports:
+      - "4446:4444"
+    volumes:
+      - /dev/shm:/dev/shm
+
+  selenium-firefox:
+    image: selenium/standalone-firefox:latest
+    container_name: selenium-firefox
+    ports:
+      - "4445:4444"
+    volumes:
+      - /dev/shm:/dev/shm
+
+  #My mac has M1 chip, so I need a different image.
+  selenium-chromium:
+    image: selenium/standalone-chromium:latest
+    ports:
+      - "4444:4444"
+      - "5900:5900"
+    volumes:
+      - /dev/shm:/dev/shm
+    environment:
+      - VNC_PASSWORD=aureum
+    container_name: selenium-chromium
